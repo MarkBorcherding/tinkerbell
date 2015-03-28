@@ -1,0 +1,26 @@
+#!/usr/bin/env pixie-vm
+;; -*- mode: clojure -*-
+;; vi: set ft=clojure :
+
+(ns tinkerbell
+   (require pixie.string :as s))
+
+(defn show-usage []
+  (println "
+tink - tmate wrapper with a few enhancements.
+
+Commands:
+  slack
+  address
+  version
+  help
+"))
+
+(defn tmate-command [] "echo ")
+
+(defn start-tmate-session [arguments]
+  (sh (s/join " " (flatten [(tmate-command)  arguments]))))
+
+(cond
+  (= "help" (first program-arguments)) (show-usage)
+  :else (start-tmate-session program-arguments))
