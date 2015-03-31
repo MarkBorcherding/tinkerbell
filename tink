@@ -10,13 +10,11 @@
 tink - tmate wrapper with a few enhancements.
 
 Commands:
-  slack
-  address
   version
   help
 "))
 
-(defn tmate-command [] "echo ")
+(defn tmate-command [] "echo Running tmate")
 
 (defn start-tmate-session [arguments]
   (sh (s/join " " (flatten [(tmate-command)  arguments]))))
