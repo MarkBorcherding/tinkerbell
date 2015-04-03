@@ -2,16 +2,8 @@
 ;; vi: set ft=clojure :
 
 (ns tinkerbell.core
-   (require pixie.string :as s))
-
-(defn show-usage []
-  (println "
-tink - tmate wrapper with a few enhancements.
-
-Commands:
-  version
-  help
-"))
+   (require pixie.string :as s)
+   (require tinkerbell.commands.help :as help))
 
 (defn tmate-command [] "echo Running tmate")
 
@@ -20,5 +12,5 @@ Commands:
 
 (defn execute [arguments]
   (cond
-    (= "help" (first arguments)) (show-usage)
+    (= "help" (first arguments)) (help/execute)
     :else (start-tmate-session arguments)))
