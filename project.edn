@@ -1,4 +1,5 @@
-{:name        tinkerbell
- :version     "0.1.0-alpha"
- :description "A wrapper for tmate CLI"
- :test-paths  ["./tests"] }
+{:name         tinkerbell
+ :version      "0.1.0-alpha"
+ :description  "A wrapper for tmate CLI"
+ :test-paths   ["tests/"]
+ :source-paths ["src/"] }

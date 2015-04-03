@@ -1,24 +1,8 @@
-#!/usr/bin/env pixie-vm
+#!/usr/bin/env dust run
 ;; -*- mode: clojure -*-
 ;; vi: set ft=clojure :
 
-(ns tinkerbell
-   (require pixie.string :as s))
+(ns tinkerbell.cli
+  (require tinkerbell.core :as tb))
 
-(defn show-usage []
-  (println "
-tink - tmate wrapper with a few enhancements.
-
-Commands:
-  version
-  help
-"))
-
-(defn tmate-command [] "echo Running tmate")
-
-(defn start-tmate-session [arguments]
-  (sh (s/join " " (flatten [(tmate-command)  arguments]))))
-
-(cond
-  (= "help" (first program-arguments)) (show-usage)
-  :else (start-tmate-session program-arguments))
+(tb/execute program-arguments)
